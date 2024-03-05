@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blade Game</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="h-screen w-full p-2">
+        <div id="game" class="relative h-full w-full" style="border: solid 1px black;">
+            <div id="scoreboard" class="absolute top-[2%] right-[2%] p-2 text-black text-xl z-[2000]"
+                style="border: solid black 2px">
+                0
+            </div>
+            <div id="avatar" class="absolute flex justify-center items-center h-[50px] w-[50px] bg-red-300"
+                style="top: 0%; left: 0%;">
+                <div class="relative h-[1px] w-[1px] bg-black">
+                    <div class="sword absolute left-0 h-[3px] w-[200px] bg-green-400" style="transform-origin: top left;"></div>
+                    <!-- Your Second Sword!!! -->
+                    <!-- <div class="sword absolute right-0 h-[3px] w-[200px] bg-green-400" style="transform-origin: bottom right;"></div> -->
+                </div>
+            </div>
+            <div id="game-over-screen"
+                class="hidden absolute flex justify-center items-center h-full w-full bg-gray-500 opacity-50 z-[3000]">
+                <div class="p-2 bg-white text-center rounded" style="border: solid black 1px">
+                    <p class="pb-2">Game Over!</p>
+                    <button id="play-again-button" class="px-2 py-1 rounded-full" style="border: solid black 1px">
+                        Play Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
