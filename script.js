@@ -8,8 +8,7 @@ let ENEMY_SPAWN_FREQUENCY = 0.2; // in seconds
 
 const intervals = {
     gameEngine: null,
-    enemySpawner: null,
-
+    enemySpawner: null
 };
 
 const MAX_POSITION = 100;
@@ -223,14 +222,6 @@ function gameOver() {
     pauseEnemySpawner();
 
     gameOverScreenElement.classList.remove('hidden');
-}
-
-function setGameOverScreenActive(active = true) {
-    if (active === true) {
-
-    } else {
-
-    }
 }
 
 initControls();
