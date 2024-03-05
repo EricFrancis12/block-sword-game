@@ -37,13 +37,24 @@
             </div>
             <div id="mobile-controls"
                 class="md:hidden absolute bottom-[20%] flex justify-center items-center gap-2 w-full opacity-50 z-[2000]">
-                <img id="left" class="arrow" src="arrow.png" height="70" width="70" style="transform: rotate(270deg);">
-                <div class="flex flex-col gap-2">
-                    <img id="up" class="arrow" src="arrow.png" height="70" width="70" />
-                    <img id="down" class="arrow" src="arrow.png" height="70" width="70"
-                        style="transform: rotate(180deg);" />
+                <div id="left" class="arrow flex flex-col items-center" style="transform: rotate(270deg);">
+                    <div class="arrow-div relative"></div>
+                    <div class="h-[40px] w-[25px] bg-black"></div>
                 </div>
-                <img id="right" class="arrow" src="arrow.png" height="70" width="70" style="transform: rotate(90deg);">
+                <div class="flex flex-col gap-2">
+                    <div id="up" class="arrow flex flex-col items-center">
+                        <div class="arrow-div relative"></div>
+                        <div class="h-[40px] w-[25px] bg-black"></div>
+                    </div>
+                    <div id="left" class="arrow flex flex-col items-center" style="transform: rotate(180deg);">
+                        <div class="arrow-div relative"></div>
+                        <div class="h-[40px] w-[25px] bg-black"></div>
+                    </div>
+                </div>
+                <div id="right" class="arrow flex flex-col items-center" style="transform: rotate(90deg);">
+                    <div class="arrow-div relative"></div>
+                    <div class="h-[40px] w-[25px] bg-black"></div>
+                </div>
             </div>
         </div>
     </div>
