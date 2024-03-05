@@ -21,6 +21,12 @@ const scoreboardElement = document.getElementById('scoreboard');
 const gameOverScreenElement = document.getElementById('game-over-screen');
 const playAgainButton = document.getElementById('play-again-button');
 
+const upArrowElement = document.querySelector('.arrow#up');
+const downArrowElement = document.querySelector('.arrow#down');
+const leftArrowElement = document.querySelector('.arrow#left');
+const rightArrowElement = document.querySelector('.arrow#right');
+const arrowElements = Array.from(document.querySelectorAll('.arrow'));
+
 class Enemy {
     constructor() {
         this._id = crypto.randomUUID();
@@ -101,6 +107,24 @@ function initControls() {
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
             velocity.x = 0;
         }
+    });
+
+    arrowElements.forEach(arrowElement => {
+        arrowElement.addEventListener('mousedown', (e) => {
+            if (arrowElement.id === 'up') {
+                velocity.y = -1;
+                document.addEventListener('mouseup', () => velocity.y = 0);
+            } else if (arrowElement.id === 'down') {
+                velocity.y = 1;
+                document.addEventListener('mouseup', () => velocity.y = 0);
+            } else if (arrowElement.id === 'left') {
+                velocity.x = -1;
+                document.addEventListener('mouseup', () => velocity.x = 0);
+            } else if (arrowElement.id === 'right') {
+                velocity.x = 1;
+                document.addEventListener('mouseup', () => velocity.x = 0);
+            }
+        });
     });
 
     playAgainButton.addEventListener('click', () => startNewGame());
