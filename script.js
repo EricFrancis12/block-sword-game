@@ -179,6 +179,30 @@ function pauseEnemySpawner() {
     intervals.enemySpawner = null;
 }
 
+function applyQueryParamOptions() {
+    const queryParams = new URLSearchParams(window.location.search);
+    
+    const swordLength = parseFloat(queryParams.get('sword-length'));
+    if (!!swordLength) {
+        swordElements.forEach(swordElement => swordElement.style.width = `${swordLength}px`);
+    }
+
+    const weaponRotationSpeed = parseFloat(queryParams.get('weapon-rotation-speed'));
+    if (!!weaponRotationSpeed) {
+        WEAPON_ROTATION_SPEED = weaponRotationSpeed;
+    }
+
+    const enemySpeed = parseFloat(queryParams.get('enemy-speed'));
+    if (!!enemySpeed) {
+        ENEMY_SPEED = enemySpeed;
+    }
+
+    const enemySpawnFrequency = parseFloat(queryParams.get('enemy-spawn-frequency'));
+    if (!!enemySpawnFrequency) {
+        ENEMY_SPAWN_FREQUENCY = enemySpawnFrequency;
+    }
+}
+
 function elementsAreOverlapping(element1, element2) {
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
@@ -248,5 +272,6 @@ function gameOver() {
     gameOverScreenElement.classList.remove('hidden');
 }
 
+applyQueryParamOptions();
 initControls();
 startNewGame();
