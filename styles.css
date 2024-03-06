@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    user-select: none;
+}
+
 .enemy {
     position: absolute;
     height: 25px;
