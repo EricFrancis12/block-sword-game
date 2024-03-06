@@ -128,6 +128,8 @@ function initControls() {
     });
 
     playAgainButton.addEventListener('click', () => startNewGame());
+
+    document.addEventListener('touchstart', (e) => e.preventDefault());
 }
 
 function startGameEngine() {
