@@ -20,6 +20,7 @@ const swordElements = Array.from(document.querySelectorAll('.sword'));
 const scoreboardElement = document.getElementById('scoreboard');
 const gameOverScreenElement = document.getElementById('game-over-screen');
 const playAgainButton = document.getElementById('play-again-button');
+const finalScoreSpan = document.getElementById('final-score-span');
 
 const upArrowElement = document.querySelector('.arrow#up');
 const downArrowElement = document.querySelector('.arrow#down');
@@ -238,6 +239,7 @@ function startNewGame() {
     enemies.length = 0;
 
     gameOverScreenElement.classList.add('hidden');
+    finalScoreSpan.innerText = '';
 
     resetScore();
 
@@ -271,6 +273,7 @@ function gameOver() {
     pauseGameEngine();
     pauseEnemySpawner();
 
+    finalScoreSpan.innerText = score;
     gameOverScreenElement.classList.remove('hidden');
 }
 
