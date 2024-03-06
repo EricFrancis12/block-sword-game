@@ -18,7 +18,9 @@ const gameElement = document.getElementById('game');
 const avatarElement = document.getElementById('avatar');
 const swordElements = Array.from(document.querySelectorAll('.sword'));
 const scoreboardElement = document.getElementById('scoreboard');
+const startScreenElement = document.getElementById('start-screen');
 const gameOverScreenElement = document.getElementById('game-over-screen');
+const startButton = document.getElementById('start-button');
 const playAgainButton = document.getElementById('play-again-button');
 const finalScoreSpan = document.getElementById('final-score-span');
 
@@ -81,6 +83,8 @@ let weaponDeg = 0;
 let enemies = [new Enemy];
 
 function initControls() {
+    document.addEventListener('touchstart', (e) => e.preventDefault());
+
     document.addEventListener('keydown', (e) => {
         e.preventDefault();
         if (e.key === 'ArrowUp') {
@@ -129,8 +133,7 @@ function initControls() {
     });
 
     playAgainButton.addEventListener('click', () => startNewGame());
-
-    document.addEventListener('touchstart', (e) => e.preventDefault());
+    startButton.addEventListener('click', () => startNewGame());
 }
 
 function startGameEngine() {
@@ -204,6 +207,11 @@ function applyQueryParamOptions() {
     if (!!enemySpawnFrequency) {
         ENEMY_SPAWN_FREQUENCY = enemySpawnFrequency;
     }
+
+    const avatarColor = parseFloat(queryParams.get('avatar-color'));
+    if (!!avatarColor) {
+        avatarElement.style.background = avatarColor;
+    }
 }
 
 function elementsAreOverlapping(element1, element2) {
@@ -238,6 +246,7 @@ function startNewGame() {
     enemies.forEach(enemy => enemy.remove());
     enemies.length = 0;
 
+    startScreenElement.classList.add('hidden');
     gameOverScreenElement.classList.add('hidden');
     finalScoreSpan.innerText = '';
 
@@ -279,4 +288,3 @@ function gameOver() {
 
 applyQueryParamOptions();
 initControls();
-startNewGame();
