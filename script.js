@@ -110,19 +110,19 @@ function initControls() {
     });
 
     arrowElements.forEach(arrowElement => {
-        arrowElement.addEventListener('mousedown', (e) => {
+        arrowElement.addEventListener('pointerdown', (e) => {
             if (arrowElement.id === 'up') {
                 velocity.y = -1;
-                document.addEventListener('mouseup', () => velocity.y = 0);
+                document.addEventListener('pointerup', () => velocity.y = 0);
             } else if (arrowElement.id === 'down') {
                 velocity.y = 1;
-                document.addEventListener('mouseup', () => velocity.y = 0);
+                document.addEventListener('pointerup', () => velocity.y = 0);
             } else if (arrowElement.id === 'left') {
                 velocity.x = -1;
-                document.addEventListener('mouseup', () => velocity.x = 0);
+                document.addEventListener('pointerup', () => velocity.x = 0);
             } else if (arrowElement.id === 'right') {
                 velocity.x = 1;
-                document.addEventListener('mouseup', () => velocity.x = 0);
+                document.addEventListener('pointerup', () => velocity.x = 0);
             }
         });
     });
@@ -181,7 +181,7 @@ function pauseEnemySpawner() {
 
 function applyQueryParamOptions() {
     const queryParams = new URLSearchParams(window.location.search);
-    
+
     const swordLength = parseFloat(queryParams.get('sword-length'));
     if (!!swordLength) {
         swordElements.forEach(swordElement => swordElement.style.width = `${swordLength}px`);
